@@ -4,15 +4,19 @@
     "homepage": "https://vokoloven.github.io/abz-agency-test-app",
     "private": true,
     "dependencies": {
+        "@hookform/resolvers": "^3.1.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-hook-form": "^7.45.1",
         "react-scripts": "5.0.1",
-        "styled-components": "^6.0.0-rc.6",
+        "styled-components": "^5.3.10",
+        "styled-normalize": "^8.0.7",
         "styled-system": "^5.1.5",
-        "web-vitals": "^2.1.4"
+        "web-vitals": "^2.1.4",
+        "yup": "^1.2.0"
     },
     "scripts": {
         "predeploy": "npm run build",
@@ -41,6 +45,7 @@
         ]
     },
     "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "gh-pages": "^5.0.0"
     }
 }
