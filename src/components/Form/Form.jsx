@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from 'validation'
 import { Box } from 'components/Box'
-import { Input, InputBox } from 'components/Input'
+import { TextInput, TextInputBox, phoneFilter } from 'components/TextInput'
 import { Button } from 'components/Button'
-import { phoneFilter } from 'components/Input'
 import { RadioButton, RadioButtonBox } from 'components/RadioButton'
+import { Upload } from 'components/Upload'
+import { isDisabledButton } from './isDisabledButton'
 
 export const Form = () => {
     const [input, setInput] = useState({})
@@ -35,7 +36,9 @@ export const Form = () => {
     const handleChange = (e) => {
         setInput((prevState) => ({
             ...prevState,
-            [e.target.id]: e.target.value,
+            ...(e.target?.id === 'file-upload'
+                ? { photo: e.target?.files[0] }
+                : { [e.target.id]: e.target.value }),
         }))
 
         if (e.target?.id === 'phone') {
@@ -51,19 +54,24 @@ export const Form = () => {
             onSubmit={handleSubmit(onSubmit, onError)}
             onChange={handleChange}
         >
-            <InputBox>
-                <Input register={register} input={input} error={error} />
-            </InputBox>
+            <TextInputBox>
+                <TextInput register={register} input={input} error={error} />
+            </TextInputBox>
             <RadioButtonBox>
                 <RadioButton register={register} />
             </RadioButtonBox>
+            <Upload register={register} error={error?.photo} input={input} />
             <Box
                 width={'100%'}
                 display={'flex'}
                 justifyContent={'center'}
                 mt={50}
             >
-                <Button type={'submit'} variant={'primary'} disabled>
+                <Button
+                    type={'submit'}
+                    variant={'primary'}
+                    disabled={isDisabledButton(input)}
+                >
                     Sign up
                 </Button>
             </Box>

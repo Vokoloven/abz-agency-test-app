@@ -1,6 +1,6 @@
 import { Box } from 'components/Box'
 
-export const InputBox = ({ children }) => {
+export const TextInputBox = ({ children }) => {
     return (
         <Box display={'flex'} flexDirection={'column'}>
             {children}

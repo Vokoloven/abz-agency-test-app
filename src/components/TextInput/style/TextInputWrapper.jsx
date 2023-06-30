@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const InputWrapper = styled('div')`
+export const TextInputWrapper = styled('div')`
     position: relative;
     width: 100%;
 `

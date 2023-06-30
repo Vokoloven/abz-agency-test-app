@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { StyledPlaceholder } from './StyledPlaceholder'
+import { StyledTextPlaceholder } from './StyledTextPlaceholder'
 
-export const StyledInput = styled('input')`
+export const StyledTextInput = styled('input')`
     width: 100%;
     padding: 13px 15px;
 
@@ -23,7 +23,7 @@ export const StyledInput = styled('input')`
             padding: 12px 14px;
         `}
 
-    &:focus + ${StyledPlaceholder} {
+    &:focus + ${StyledTextPlaceholder} {
         top: 0;
         left: 12px;
         transition: all 0.2s ease-in-out;

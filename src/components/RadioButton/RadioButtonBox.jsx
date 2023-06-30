@@ -3,7 +3,7 @@ import { Typography } from 'components/Typography'
 
 export const RadioButtonBox = ({ children }) => {
     return (
-        <Box display={'flex'} flexDirection={'column'} mt={43}>
+        <Box display={'flex'} flexDirection={'column'} mt={25}>
             <Typography variant={'body'} mb={11}>
                 Select your position
             </Typography>

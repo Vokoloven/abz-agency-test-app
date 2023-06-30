@@ -1,21 +1,21 @@
 export const radioButtons = [
     {
-        id: 'value-frontend-developer',
+        id: 'position',
         name: 'position',
         value: 'Frontend developer',
     },
     {
-        id: 'value-backend-developer',
+        id: 'position',
         name: 'position',
         value: 'Backend developer',
     },
     {
-        id: 'value-designer',
+        id: 'position',
         name: 'position',
         value: 'Designer',
     },
     {
-        id: 'value-qa',
+        id: 'position',
         name: 'position',
         value: 'QA',
     },

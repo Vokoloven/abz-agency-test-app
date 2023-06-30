@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const StyledPlaceholder = styled('p')`
+export const StyledTextPlaceholder = styled('p')`
     position: absolute;
     top: 50%;
     left: ${(p) => p.theme.space[4]};

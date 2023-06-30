@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledInput = styled('input')`
+export const StyledRadioInput = styled('input')`
     width: 20px;
     height: 20px;
     position: relative;

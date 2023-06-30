@@ -27,4 +27,32 @@ export const schema = yup.object().shape({
         .oneOf(['Frontend developer', 'Backend developer', 'Designer', 'QA'])
         .defined()
         .required(),
+    photo: yup
+        .mixed()
+        .required()
+        .test('name', 'You should provide the file', (value) => {
+            if (value?.length === 0) {
+                return false
+            } else {
+                return true
+            }
+        })
+        .test('size', 'The file size should be no more than 5Mb', (value) => {
+            if (value?.length === 0) {
+                return false
+            } else {
+                return value && value[0].size <= 5000000
+            }
+        })
+        .test('type', 'Supported only jpeg or png files', (value) => {
+            if (!value) {
+                return
+            } else if (value?.length === 0) {
+                return false
+            }
+            return (
+                (value && value[0].type === 'image/jpeg') ||
+                (value && value[0].type === 'image/png')
+            )
+        }),
 })

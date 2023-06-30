@@ -2,7 +2,7 @@ import { Box } from 'components/Box'
 import { Typography } from 'components/Typography'
 import { useState } from 'react'
 import { radioButtons } from './radioButtons'
-import { StyledInput } from './style/StyledInput'
+import { StyledRadioInput } from './style/StyledRadioInput'
 
 export const RadioButton = ({ register }) => {
     const [select, setSelect] = useState('Frontend developer')
@@ -11,7 +11,7 @@ export const RadioButton = ({ register }) => {
 
     return radioButtons.map((item) => (
         <Box
-            key={item?.id}
+            key={item?.value}
             display={'flex'}
             alignItems={'center'}
             sx={{
@@ -20,7 +20,7 @@ export const RadioButton = ({ register }) => {
                 },
             }}
         >
-            <StyledInput
+            <StyledRadioInput
                 type={'radio'}
                 value={item?.value}
                 id={item?.id}
