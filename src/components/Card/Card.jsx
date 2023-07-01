@@ -1,8 +1,8 @@
 import { Box } from 'components/Box'
-import { ReactComponent as Image } from 'assets/photo-cover.svg'
 import { Typography } from 'components/Typography'
+import { Tooltip } from 'components/Tooltip'
 
-export const Card = ({ props: { name, rank, email, phone } }) => {
+export const Card = ({ props: { name, position, email, phone, photo } }) => {
     return (
         <Box p={5} width={'100%'} bg={'white'} borderRadius={10}>
             <Box
@@ -11,18 +11,36 @@ export const Card = ({ props: { name, rank, email, phone } }) => {
                 alignItems={'center'}
                 flexDirection={'column'}
             >
-                <Image />
-                <Typography as={'li'} variant={'body'} mt={20}>
+                <Box
+                    as={'img'}
+                    src={photo}
+                    alt={'photo'}
+                    width={70}
+                    height={70}
+                    borderRadius={'50%'}
+                    loading={'lazy'}
+                />
+                <Typography
+                    as={'li'}
+                    variant={'body'}
+                    mt={20}
+                    maxWidth={'288px'}
+                    sx={{
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                    }}
+                >
                     {name}
                 </Typography>
                 <Typography as={'li'} variant={'body'} mt={20}>
-                    {rank}
+                    {position}
                 </Typography>
+                <Tooltip>{email}</Tooltip>
                 <Typography as={'li'} variant={'body'}>
-                    {email}
-                </Typography>
-                <Typography as={'li'} variant={'body'}>
-                    {phone}
+                    <Box as={'a'} href={`tel:${phone}`}>
+                        {phone}
+                    </Box>
                 </Typography>
             </Box>
         </Box>

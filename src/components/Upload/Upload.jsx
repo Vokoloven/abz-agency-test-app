@@ -14,11 +14,23 @@ export const Upload = ({ register, error, input }) => {
                     id={'file-upload'}
                     {...register('photo')}
                 />
-                <StyledUploadLabel htmlFor={'file-upload'}>
+                <StyledUploadLabel htmlFor={'file-upload'} error={error}>
                     Upload
                 </StyledUploadLabel>
-                <StyledInputValue>
-                    {!!input?.photo ? input.photo.name : 'Upload your photo'}
+                <StyledInputValue error={error}>
+                    <Typography
+                        variant={'body'}
+                        color={'placeholder'}
+                        sx={{
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                        }}
+                    >
+                        {!!input?.photo
+                            ? input.photo.name
+                            : 'Upload your photo'}
+                    </Typography>
                 </StyledInputValue>
             </Box>
             {handleErrorText(error, Typography, Box)}

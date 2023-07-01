@@ -9,8 +9,7 @@ export const phoneFilter = (input) => {
             .match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/)
 
         const formatPhoneNumber =
-            (phoneNumber[1] ? '+' : '') +
-            (phoneNumber[1] ? phoneNumber[1] : '') +
+            '+38' +
             (phoneNumber[2] ? ' (' : '') +
             phoneNumber[2] +
             (phoneNumber[3] ? ') ' : '') +

@@ -18,8 +18,8 @@ export const Form = () => {
     })
 
     const onSubmit = (e) => {
-        const replacedPhone = e?.phone?.replace(/[-]/g, ' ')
-        const updatedValue = { ...e, phone: replacedPhone }
+        // const replacedPhone = e?.phone?.replace(/[-]/g, ' ')
+        // const updatedValue = { ...e, phone: replacedPhone }
 
         console.log(e)
 
@@ -70,7 +70,7 @@ export const Form = () => {
                 <Button
                     type={'submit'}
                     variant={'primary'}
-                    disabled={isDisabledButton(input)}
+                    disabled={!isDisabledButton(input)}
                 >
                     Sign up
                 </Button>

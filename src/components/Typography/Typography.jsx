@@ -22,5 +22,8 @@ export const Typography = styled('div')(
             },
         },
     }),
+    ({ sx }) => {
+        return { ...sx }
+    },
     composeUtility()
 )

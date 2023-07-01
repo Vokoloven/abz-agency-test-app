@@ -18,11 +18,17 @@ export const Button = styled('button')(
             },
         },
     }),
+
+    ({ sx }) => {
+        return { ...sx }
+    },
+
     (props) =>
         props.disabled &&
         css`
             background-color: ${props.theme.colors.disabled};
             color: ${props.theme.colors.white};
         `,
+
     composeUtility()
 )

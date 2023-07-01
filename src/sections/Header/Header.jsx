@@ -9,14 +9,19 @@ export const Header = () => {
             <Box py={13} display={'flex'} alignItems={'center'}>
                 <Logo mr={14} />
                 {['Users', 'Sign up'].map((name, index) => (
-                    <Button
-                        key={name + index}
-                        variant={'primary'}
-                        mr={index === 0 && { mr: 14 }}
-                        aria-label={name}
+                    <Box
+                        key={name}
+                        as={'a'}
+                        href={`#${name.replace(/\s/g, '').toLowerCase()}`}
                     >
-                        {name}
-                    </Button>
+                        <Button
+                            variant={'primary'}
+                            mr={index === 0 && { mr: 14 }}
+                            aria-label={name}
+                        >
+                            {name}
+                        </Button>
+                    </Box>
                 ))}
             </Box>
         </Container>

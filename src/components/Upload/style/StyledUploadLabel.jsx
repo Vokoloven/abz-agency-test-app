@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledUploadLabel = styled('label')`
     padding: 13px 14px;
@@ -15,4 +15,17 @@ export const StyledUploadLabel = styled('label')`
     color: ${(p) => p.theme.colors.black};
 
     cursor: pointer;
+
+    ${({ error }) => {
+        if (error) {
+            return css`
+                border-top-width: 2px;
+                border-left-width: 2px;
+                border-bottom-width: 2px;
+                border-right-width: 2px;
+                border-color: ${(p) => p.theme.colors.error};
+                padding: 12px 13px;
+            `
+        }
+    }}
 `

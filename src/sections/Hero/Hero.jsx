@@ -2,6 +2,7 @@ import { Button } from 'components/Button'
 import { Container } from 'components/Container'
 import { Typography } from 'components/Typography'
 import { Background } from './Background'
+import { Box } from 'components/Box'
 
 export const Hero = () => {
     return (
@@ -35,9 +36,15 @@ export const Hero = () => {
                         should also be excited to learn, as the world of
                         Front-End Development keeps evolving.
                     </Typography>
-                    <Button variant={'primary'} mt={36} aria-label={'Sign Up'}>
-                        Sign Up
-                    </Button>
+                    <Box as={'a'} href={`#signup`}>
+                        <Button
+                            variant={'primary'}
+                            mt={36}
+                            aria-label={'Sign Up'}
+                        >
+                            Sign Up
+                        </Button>
+                    </Box>
                 </Container>
             </Background>
         </Container>
