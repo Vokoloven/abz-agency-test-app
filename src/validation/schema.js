@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react'
 import * as yup from 'yup'
 import { regExp } from './regExp'
 
@@ -23,11 +22,7 @@ export const schema = yup.object().shape({
         )
         .defined()
         .required(),
-    radio: yup
-        .mixed()
-        .oneOf(['Frontend developer', 'Backend developer', 'Designer', 'QA'])
-        .defined()
-        .required(),
+    radio: yup.mixed().oneOf(['1', '2', '3', '4']).defined().required(),
     photo: yup
         .mixed()
         .required()

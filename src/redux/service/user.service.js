@@ -8,12 +8,15 @@ export const getUsers = createAsyncThunk(
             const token = await axiosConfig.get('/token/')
             axiosConfig.defaults.headers.common.Authorization = `Bearer ${token.data.token}`
 
+            const getPositions = await axiosConfig.get('/positions/')
+            const positions = getPositions.data
+
             const response = await axiosConfig.get('/users/', {
                 ...params,
             })
 
             const { data } = response
-            return data
+            return { data, positions }
         } catch (error) {
             thunkAPI.rejectWithValue(error.message)
         }

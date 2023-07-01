@@ -1,3 +1,3 @@
-import { getUsers } from './user.serviceApi'
+import { getUsers } from './user.service'
 
 export { getUsers }

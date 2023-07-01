@@ -1,17 +1,21 @@
 import { Box } from 'components/Box'
 import { Typography } from 'components/Typography'
 import { useState } from 'react'
-import { radioButtons } from './radioButtons'
 import { StyledRadioInput } from './style/StyledRadioInput'
+import { useSelector } from 'react-redux/es/hooks/useSelector'
+import { selectUsers } from 'redux/selectors'
 
 export const RadioButton = ({ register }) => {
-    const [select, setSelect] = useState('Frontend developer')
+    const [select, setSelect] = useState(1)
+    const {
+        positions: { positions },
+    } = useSelector(selectUsers)
 
     const handleSelectChange = (value) => setSelect(value)
 
-    return radioButtons.map((item) => (
+    return positions?.map(({ id, name }) => (
         <Box
-            key={item?.value}
+            key={id}
             display={'flex'}
             alignItems={'center'}
             sx={{
@@ -22,13 +26,13 @@ export const RadioButton = ({ register }) => {
         >
             <StyledRadioInput
                 type={'radio'}
-                value={item?.value}
-                id={item?.id}
-                checked={select === item?.value}
-                onClick={handleSelectChange.bind(null, item?.value)}
+                value={id}
+                id={id}
+                checked={select === id}
+                onClick={handleSelectChange.bind(null, id)}
                 {...register('radio')}
             />
-            <Typography variant={'body'}>{item?.value}</Typography>
+            <Typography variant={'body'}>{name}</Typography>
         </Box>
     ))
 }

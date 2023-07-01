@@ -8,6 +8,7 @@ import { Button } from 'components/Button'
 import { RadioButton, RadioButtonBox } from 'components/RadioButton'
 import { Upload } from 'components/Upload'
 import { isDisabledButton } from './isDisabledButton'
+import { inputCopy } from './inputCopy'
 
 export const Form = () => {
     const [input, setInput] = useState({})
@@ -18,11 +19,9 @@ export const Form = () => {
     })
 
     const onSubmit = (e) => {
-        // const replacedPhone = e?.phone?.replace(/[-]/g, ' ')
-        // const updatedValue = { ...e, phone: replacedPhone }
+        const copy = inputCopy(e)
 
-        console.log(e)
-
+        console.log(copy)
         setInput({})
         setError(null)
         ;['name', 'email', 'phone'].map((item) => setValue(item, ''))
@@ -70,7 +69,7 @@ export const Form = () => {
                 <Button
                     type={'submit'}
                     variant={'primary'}
-                    disabled={!isDisabledButton(input)}
+                    disabled={isDisabledButton(input)}
                 >
                     Sign up
                 </Button>

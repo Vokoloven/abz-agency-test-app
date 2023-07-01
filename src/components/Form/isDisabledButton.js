@@ -3,7 +3,9 @@ export const isDisabledButton = (input) => {
         const inputKeys = Object.keys(input)
 
         const isDisabled = inputKeys.reduce((acc, item) => {
-            item === 'position' ? (acc = acc + 0) : acc++
+            item === '1' || item === '2' || item === '3' || item === '4'
+                ? (acc = acc + 0)
+                : acc++
 
             return acc
         }, 1)
