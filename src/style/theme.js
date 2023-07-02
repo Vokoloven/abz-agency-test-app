@@ -57,11 +57,13 @@ export const theme = {
         8: '32px',
     },
     breakpoints: (function () {
-        const breakpoints = ['360px', '768px', '1024px', '2560px']
-        breakpoints.mobile = breakpoints[0]
-        breakpoints.tablet = breakpoints[1]
-        breakpoints.laptop = breakpoints[2]
-        breakpoints.desktop = breakpoints[3]
-        return breakpoints
+        const breakpoints = ['360px', '768px', '1024px', '1170px', '2560px'];
+        breakpoints.mobile = breakpoints[0];
+        breakpoints.tablet = breakpoints[1];
+        breakpoints.laptop = breakpoints[2];
+        breakpoints.desktopS = breakpoints[3];
+        breakpoints.desktopL = breakpoints[4];
+
+        return breakpoints;
     })(),
-}
+};

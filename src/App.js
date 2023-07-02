@@ -1,20 +1,20 @@
-import { Header } from 'sections/Header'
-import { Hero } from 'sections/Hero'
-import { Users } from 'sections/Users'
-import { Request } from 'sections/Request'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getUsers } from 'redux/service'
-import { useRef } from 'react'
+import { Header } from 'sections/Header';
+import { Hero } from 'sections/Hero';
+import { Users } from 'sections/Users';
+import { Request } from 'sections/Request';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getUsers } from 'redux/service';
+import { useRef } from 'react';
 
 export const App = () => {
-    const dispatch = useDispatch()
-    const isFirstRender = useRef(true)
+    const dispatch = useDispatch();
+    const isFirstRender = useRef(true);
 
     useEffect(() => {
         if (isFirstRender.current) {
-            isFirstRender.current = false
-            return
+            isFirstRender.current = false;
+            return;
         }
 
         dispatch(
@@ -24,8 +24,8 @@ export const App = () => {
                     count: '6',
                 },
             })
-        )
-    }, [dispatch])
+        );
+    }, [dispatch]);
 
     return (
         <>
@@ -33,6 +33,7 @@ export const App = () => {
             <Hero />
             <Users />
             <Request />
+            {/* <Fonts /> */}
         </>
-    )
-}
+    );
+};

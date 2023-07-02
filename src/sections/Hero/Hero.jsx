@@ -1,15 +1,16 @@
-import { Button } from 'components/Button'
-import { Container } from 'components/Container'
-import { Typography } from 'components/Typography'
-import { Background } from './Background'
-import { Box } from 'components/Box'
+import { Button } from 'components/Button';
+import { Container } from 'components/Container';
+import { Typography } from 'components/Typography';
+import { Background } from './Background';
+import { Box } from 'components/Box';
 
 export const Hero = () => {
     return (
         <Container p={{ mobile: 0, tablet: 0, laptop: 0, desktop: 0 }}>
             <Background>
                 <Container
-                    pt={40}
+                    pt={{ mobile: 40, tablet: 89, laptop: 164 }}
+                    px={{ mobile: 16, tablet: 194, laptop: 322, desktopS: 395 }}
                     display={'flex'}
                     flexDirection={'column'}
                     alignItems={'center'}
@@ -39,7 +40,7 @@ export const Hero = () => {
                     <Box as={'a'} href={`#signup`}>
                         <Button
                             variant={'primary'}
-                            mt={36}
+                            mt={32}
                             aria-label={'Sign Up'}
                         >
                             Sign Up
@@ -48,5 +49,5 @@ export const Hero = () => {
                 </Container>
             </Background>
         </Container>
-    )
-}
+    );
+};

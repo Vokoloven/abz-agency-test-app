@@ -1,8 +1,16 @@
-import { Form } from 'components/Form'
-import { Container } from 'components/Container'
-import { Typography } from 'components/Typography'
+import { Form } from 'components/Form';
+import { Container } from 'components/Container';
+import { Typography } from 'components/Typography';
+import { StyledSuccessImg } from './style/StyledSuccessImg';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { selectUsers } from 'redux/selectors';
+import { Box } from 'components/Box';
 
 export const Request = () => {
+    const {
+        createdUser: { success },
+    } = useSelector(selectUsers);
+
     return (
         <Container bg={'background'} pb={100} id={'signup'}>
             <Typography
@@ -11,9 +19,17 @@ export const Request = () => {
                 mb={50}
                 textAlign={'center'}
             >
-                Working with POST request
+                {success
+                    ? 'User successfully registered '
+                    : 'Working with POST request'}
             </Typography>
-            <Form />
+            {success ? (
+                <Box display={'flex'} justifyContent={'center'}>
+                    <StyledSuccessImg />
+                </Box>
+            ) : (
+                <Form />
+            )}
         </Container>
-    )
-}
+    );
+};

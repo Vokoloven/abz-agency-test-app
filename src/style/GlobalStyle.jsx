@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -33,6 +33,7 @@ ${normalize}
 body {
     font-family: ${(p) => p.theme.fonts.nunito};
     font-weight: ${(p) => p.theme.fontWeights.regular};
+    background-color: ${(p) => p.theme.colors.background};
 }
 
 p,
@@ -79,4 +80,4 @@ li {
     list-style: none;
     padding: 0;
 }
-`
+`;

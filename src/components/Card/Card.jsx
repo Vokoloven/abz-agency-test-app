@@ -1,6 +1,7 @@
-import { Box } from 'components/Box'
-import { Typography } from 'components/Typography'
-import { Tooltip } from 'components/Tooltip'
+import { Box } from 'components/Box';
+import { Typography } from 'components/Typography';
+import { Tooltip } from 'components/Tooltip';
+import { phoneFilter } from 'components/TextInput';
 
 export const Card = ({ props: { name, position, email, phone, photo } }) => {
     return (
@@ -20,29 +21,18 @@ export const Card = ({ props: { name, position, email, phone, photo } }) => {
                     borderRadius={'50%'}
                     loading={'lazy'}
                 />
-                <Typography
-                    as={'li'}
-                    variant={'body'}
-                    mt={20}
-                    maxWidth={'288px'}
-                    sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                    }}
-                >
-                    {name}
-                </Typography>
+
+                <Tooltip sx={{ mt: 20 }}>{name}</Tooltip>
                 <Typography as={'li'} variant={'body'} mt={20}>
                     {position}
                 </Typography>
                 <Tooltip>{email}</Tooltip>
                 <Typography as={'li'} variant={'body'}>
                     <Box as={'a'} href={`tel:${phone}`}>
-                        {phone}
+                        {phoneFilter(phone).replace(/[-]/g, ' ')}
                     </Box>
                 </Typography>
             </Box>
         </Box>
-    )
-}
+    );
+};

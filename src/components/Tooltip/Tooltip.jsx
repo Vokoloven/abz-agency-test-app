@@ -1,33 +1,37 @@
-import { Typography } from 'components/Typography'
-import { StyledTooltipBox } from './style/StyledTooltipBox'
-import { StyledTooltipText } from './style/StyledTooltipText'
-import { StyledTooltipCard } from './style/StyledTooltipCard'
-import { Box } from 'components/Box'
+import { Typography } from 'components/Typography';
+import { StyledTooltipBox } from './style/StyledTooltipBox';
+import { StyledTooltipText } from './style/StyledTooltipText';
+import { StyledTooltipCard } from './style/StyledTooltipCard';
+import { Box } from 'components/Box';
+import { sliceText } from './sliceText';
 
-export const Tooltip = ({ children }) => {
+export const Tooltip = ({ children, sx }) => {
     return (
-        <StyledTooltipCard>
-            <StyledTooltipText>
-                <Typography
-                    as={'p'}
-                    variant={'body'}
-                    maxWidth={'288px'}
-                    sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                    }}
-                >
-                    <Box as={'a'} href={`mailto:${children}`}>
-                        {children}
+        <Box {...sx}>
+            <StyledTooltipCard>
+                <StyledTooltipText>
+                    <Box
+                        as={'a'}
+                        href={`mailto:${children}`}
+                        display={'block'}
+                        maxWidth={{ laptop: '242px', desktopS: '330px' }}
+                        sx={{
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                        }}
+                    >
+                        <Typography variant={'body'}>
+                            {sliceText(children)}
+                        </Typography>
                     </Box>
-                </Typography>
-            </StyledTooltipText>
-            <StyledTooltipBox>
-                <Typography variant={'body'} color={'white'}>
-                    {children}
-                </Typography>
-            </StyledTooltipBox>
-        </StyledTooltipCard>
-    )
-}
+                </StyledTooltipText>
+                <StyledTooltipBox>
+                    <Typography variant={'body'} color={'white'}>
+                        {children}
+                    </Typography>
+                </StyledTooltipBox>
+            </StyledTooltipCard>
+        </Box>
+    );
+};

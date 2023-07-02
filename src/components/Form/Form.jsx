@@ -79,6 +79,9 @@ export const Form = () => {
             as={'form'}
             onSubmit={handleSubmit(onSubmit, onError)}
             onChange={handleChange}
+            width={{ mobile: '100%', tablet: 380 }}
+            mr={'auto'}
+            ml={'auto'}
         >
             <TextInputBox>
                 <TextInput register={register} input={input} error={error} />
