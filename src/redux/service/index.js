@@ -1,3 +1,3 @@
-import { getUsers } from './user.service'
+import { getUsers, postUser } from './user.service'
 
-export { getUsers }
+export { getUsers, postUser }

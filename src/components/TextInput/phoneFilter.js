@@ -6,11 +6,11 @@ export const phoneFilter = (input) => {
     if (length <= phoneNumberLength) {
         const phoneNumber = input
             ?.replace(/\D/g, '')
-            .match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/)
+            .match(/(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/)
 
         const formatPhoneNumber =
-            '+38' +
-            (phoneNumber[2] ? ' (' : '') +
+            '+38 (0' +
+            (phoneNumber[2] ? '' : '') +
             phoneNumber[2] +
             (phoneNumber[3] ? ') ' : '') +
             phoneNumber[3] +

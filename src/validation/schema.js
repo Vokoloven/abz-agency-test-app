@@ -1,5 +1,5 @@
-import * as yup from 'yup'
-import { regExp } from './regExp'
+import * as yup from 'yup';
+import { regExp } from './regExp';
 
 export const schema = yup.object().shape({
     name: yup
@@ -28,52 +28,49 @@ export const schema = yup.object().shape({
         .required()
         .test('name', 'You should provide the file', (value) => {
             if (value?.length === 0) {
-                return false
+                return false;
             } else {
-                return true
+                return true;
             }
         })
         .test('size', 'The file size should be no more than 5Mb', (value) => {
             if (value?.length === 0) {
-                return false
+                return false;
             } else {
-                return value && value[0].size <= 5000000
+                return value && value[0].size <= 5000000;
             }
         })
         .test('type', 'Supported only jpg/jpeg files', (value) => {
             if (!value) {
-                return
+                return;
             } else if (value?.length === 0) {
-                return false
+                return false;
             }
-            return (
-                (value && value[0].type === 'image/jpeg') ||
-                (value && value[0].type === 'image/jpg')
-            )
+            return value && value[0].type === 'image/jpeg';
         })
         .test(
             'ratio',
             'Resolution should be at least 70x70px',
             async (value) => {
                 return new Promise((resolve) => {
-                    const reader = new FileReader()
+                    const reader = new FileReader();
                     if (value.length === 0) {
-                        resolve(false)
+                        resolve(false);
                     }
-                    reader.readAsDataURL(value[0])
+                    reader.readAsDataURL(value[0]);
                     reader.onload = function (value) {
-                        const img = new Image()
-                        img.src = value.target.result
+                        const img = new Image();
+                        img.src = value.target.result;
                         img.onload = function () {
-                            const { width, height } = this
+                            const { width, height } = this;
                             if (width < 70 || height < 70) {
-                                resolve(false)
+                                resolve(false);
                             } else {
-                                resolve(true)
+                                resolve(true);
                             }
-                        }
-                    }
-                }).then((item) => item)
+                        };
+                    };
+                }).then((item) => item);
             }
         ),
-})
+});

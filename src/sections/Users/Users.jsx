@@ -1,25 +1,41 @@
-import { Button } from 'components/Button'
-import { Card } from 'components/Card'
-import { Container } from 'components/Container'
-import { Typography } from 'components/Typography'
-import { Box } from 'components/Box'
-import { useSelector } from 'react-redux'
-import { useState } from 'react'
-import { selectUsers } from 'redux/selectors'
-import { Spinner } from 'components/Spinner'
-import { useUserFilter } from 'hooks/useUserFilter'
+import { Button } from 'components/Button';
+import { Card } from 'components/Card';
+import { Container } from 'components/Container';
+import { Typography } from 'components/Typography';
+import { Box } from 'components/Box';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { selectUsers } from 'redux/selectors';
+import { Spinner } from 'components/Spinner';
+import { getUsers } from 'redux/service';
+import { useUserFilter } from 'hooks/useUserFilter';
+import { useDispatch } from 'react-redux';
 
 export const Users = () => {
-    const [page, setPage] = useState(1)
+    // const [page, setPage] = useState(1);
+    const dispatch = useDispatch();
+
     const {
         loading,
-        usersList: { total_pages },
-    } = useSelector(selectUsers)
-    const filteredUsers = useUserFilter(page)
+        newUser,
+        usersList: { total_pages, page },
+    } = useSelector(selectUsers);
+    const filteredUsers = useUserFilter();
 
-    const handleClick = () => {
-        setPage((prevState) => prevState + 1)
-    }
+    const handleClick = async () => {
+        // setPage((prevState) => prevState + 1);
+
+        if (page <= total_pages) {
+            const gotUsers = await dispatch(
+                getUsers({
+                    params: {
+                        page: newUser ? 1 : page + 1,
+                        count: '6',
+                    },
+                })
+            );
+        }
+    };
 
     return (
         <Container
@@ -64,5 +80,5 @@ export const Users = () => {
                 Show more
             </Button>
         </Container>
-    )
-}
+    );
+};

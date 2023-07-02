@@ -1,39 +1,30 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { selectUsers } from 'redux/selectors'
-import { useEffect, useState } from 'react'
-import { getUsers } from 'redux/service'
+import { useSelector } from 'react-redux';
+import { selectUsers } from 'redux/selectors';
+import { useEffect, useState } from 'react';
 
-export const useUserFilter = (page) => {
-    const dispatch = useDispatch()
-    const { usersList } = useSelector(selectUsers)
-    const { users } = usersList
-    const [updatedUsers, setUpdatedUsers] = useState([])
+export const useUserFilter = () => {
+    const { usersList, newUser } = useSelector(selectUsers);
+    const { users } = usersList;
+    const [updatedUsers, setUpdatedUsers] = useState([]);
 
     useEffect(() => {
         const filteredUsersByRegTimestamp = users?.toSorted(
             (first, second) =>
-                first.registration_timestamp - second.registration_timestamp
-        )
-        if (filteredUsersByRegTimestamp?.length > 0) {
-            setUpdatedUsers((prevState) => [
-                ...prevState,
-                ...filteredUsersByRegTimestamp,
-            ])
-        }
-    }, [users])
+                second.registration_timestamp - first.registration_timestamp
+        );
+        const length = filteredUsersByRegTimestamp?.length;
 
-    useEffect(() => {
-        if (page > 1 && page <= usersList.total_pages) {
-            dispatch(
-                getUsers({
-                    params: {
-                        page: page,
-                        count: '6',
-                    },
-                })
-            )
+        if (length > 0) {
+            !newUser
+                ? setUpdatedUsers((prevState) => [
+                      ...prevState,
+                      ...filteredUsersByRegTimestamp,
+                  ])
+                : setUpdatedUsers([]);
         }
-    }, [dispatch, page, usersList.total_pages])
+    }, [newUser, users]);
 
-    return updatedUsers
-}
+    useEffect(() => {}, []);
+
+    return updatedUsers;
+};

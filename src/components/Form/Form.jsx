@@ -1,36 +1,63 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { schema } from 'validation'
-import { Box } from 'components/Box'
-import { TextInput, TextInputBox, phoneFilter } from 'components/TextInput'
-import { Button } from 'components/Button'
-import { RadioButton, RadioButtonBox } from 'components/RadioButton'
-import { Upload } from 'components/Upload'
-import { isDisabledButton } from './isDisabledButton'
-import { inputCopy } from './inputCopy'
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from 'validation';
+import { Box } from 'components/Box';
+import { TextInput, TextInputBox, phoneFilter } from 'components/TextInput';
+import { Button } from 'components/Button';
+import { RadioButton, RadioButtonBox } from 'components/RadioButton';
+import { Upload } from 'components/Upload';
+import { isDisabledButton } from './isDisabledButton';
+import { inputCopy } from './inputCopy';
+import { useDispatch, useSelector } from 'react-redux';
+import { postUser } from 'redux/service/user.service';
+import { getUsers } from 'redux/service';
+import { selectUsers } from 'redux/selectors';
 
 export const Form = () => {
-    const [input, setInput] = useState({})
-    const [error, setError] = useState(null)
+    const [input, setInput] = useState({});
+    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const {
+        usersList: { page },
+    } = useSelector(selectUsers);
 
     const { register, handleSubmit, setValue } = useForm({
         resolver: yupResolver(schema),
-    })
+    });
 
     const onSubmit = (e) => {
-        const copy = inputCopy(e)
+        const userData = inputCopy(e);
 
-        console.log(copy)
-        setInput({})
-        setError(null)
-        ;['name', 'email', 'phone'].map((item) => setValue(item, ''))
-    }
+        const dispatched = async () => {
+            const postedUser = await dispatch(postUser(userData));
+
+            if (postedUser.type === 'users/postUser/fulfilled' && page === 1) {
+                dispatch(
+                    getUsers({
+                        params: {
+                            page: '1',
+                            count: '6',
+                        },
+                    })
+                );
+            }
+        };
+
+        dispatched();
+
+        setInput({});
+        setError(null);
+        (() => {
+            ['name', 'email', 'phone', 'photo'].map((item) =>
+                setValue(item, '')
+            );
+        })();
+    };
 
     const onError = (e) => {
-        console.log(e)
-        setError(e)
-    }
+        setError(e);
+    };
 
     const handleChange = (e) => {
         setInput((prevState) => ({
@@ -38,14 +65,14 @@ export const Form = () => {
             ...(e.target?.id === 'file-upload'
                 ? { photo: e.target?.files[0] }
                 : { [e.target.id]: e.target.value }),
-        }))
+        }));
 
         if (e.target?.id === 'phone') {
-            const formatPhoneNumber = phoneFilter(e.target?.value)
+            const formatPhoneNumber = phoneFilter(e.target?.value);
 
-            setValue('phone', formatPhoneNumber)
+            setValue('phone', formatPhoneNumber);
         }
-    }
+    };
 
     return (
         <Box
@@ -75,5 +102,5 @@ export const Form = () => {
                 </Button>
             </Box>
         </Box>
-    )
-}
+    );
+};
