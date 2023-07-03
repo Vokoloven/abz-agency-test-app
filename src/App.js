@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUsers } from 'redux/service';
 import { useRef } from 'react';
+import { ToastNotification } from 'components/ToastNotification';
 
 export const App = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export const App = () => {
 
     return (
         <>
+            <ToastNotification />
             <Header />
             <Hero />
             <Users />

@@ -9,6 +9,7 @@ const initialState = {
     positions: {},
     errorMessage: '',
     loading: 'idle',
+    loadingPost: 'idle',
     newUser: false,
 };
 
@@ -18,20 +19,23 @@ export const usersSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(postUser.pending, (state) => {
-            state.loading = 'pending';
+            state.errorMessage = '';
+            state.loadingPost = 'pending';
             state.newUser = false;
         });
         builder.addCase(postUser.fulfilled, (state, { payload }) => {
             state.newUser = true;
-            state.loading = 'succeeded';
+            state.loadingPost = 'succeeded';
             state.createdUser = { ...payload };
         });
         builder.addCase(postUser.rejected, (state, { payload }) => {
+            console.log(payload);
             state.newUser = false;
             state.errorMessage = payload.message;
-            state.loading = 'failed';
+            state.loadingPost = 'failed';
         });
         builder.addCase(getUsers.pending, (state) => {
+            state.errorMessage = '';
             state.loading = 'pending';
         });
         builder.addCase(getUsers.fulfilled, (state, { payload }) => {

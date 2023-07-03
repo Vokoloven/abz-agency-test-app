@@ -7,9 +7,7 @@ import { selectUsers } from 'redux/selectors';
 import { Box } from 'components/Box';
 
 export const Request = () => {
-    const {
-        createdUser: { success },
-    } = useSelector(selectUsers);
+    const { loadingPost } = useSelector(selectUsers);
 
     return (
         <Container bg={'background'} pb={100} id={'signup'}>
@@ -19,11 +17,11 @@ export const Request = () => {
                 mb={50}
                 textAlign={'center'}
             >
-                {success
+                {loadingPost === 'succeeded'
                     ? 'User successfully registered '
                     : 'Working with POST request'}
             </Typography>
-            {success ? (
+            {loadingPost === 'succeeded' ? (
                 <Box display={'flex'} justifyContent={'center'}>
                     <StyledSuccessImg />
                 </Box>

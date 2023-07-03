@@ -18,7 +18,7 @@ export const getUsers = createAsyncThunk(
                 return { data, positions };
             }
         } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error.response.data);
         }
     }
 );
@@ -42,7 +42,7 @@ export const postUser = createAsyncThunk(
 
             return data;
         } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error.response.data);
         }
     }
 );

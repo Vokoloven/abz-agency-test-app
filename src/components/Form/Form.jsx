@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postUser } from 'redux/service/user.service';
 import { getUsers } from 'redux/service';
 import { selectUsers } from 'redux/selectors';
+import { Spinner } from 'components/Spinner';
 
 export const Form = () => {
     const [input, setInput] = useState({});
@@ -20,6 +21,7 @@ export const Form = () => {
     const dispatch = useDispatch();
     const {
         usersList: { page },
+        loadingPost,
     } = useSelector(selectUsers);
 
     const { register, handleSubmit, setValue } = useForm({
@@ -97,13 +99,16 @@ export const Form = () => {
                 justifyContent={'center'}
                 mt={50}
             >
-                <Button
-                    type={'submit'}
-                    variant={'primary'}
-                    disabled={isDisabledButton(input)}
-                >
-                    Sign up
-                </Button>
+                <Spinner loading={loadingPost} />
+                {loadingPost !== 'pending' && (
+                    <Button
+                        type={'submit'}
+                        variant={'primary'}
+                        disabled={isDisabledButton(input)}
+                    >
+                        Sign up
+                    </Button>
+                )}
             </Box>
         </Box>
     );
