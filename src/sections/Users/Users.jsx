@@ -20,16 +20,6 @@ export const Users = () => {
     } = useSelector(selectUsers);
     const filteredUsers = useUserFilter();
 
-    console.log(filteredUsers);
-
-    const test = '1';
-
-    const test2 = {
-        page: newUser ? 1 : page + 1,
-    };
-
-    console.log(test2.page);
-
     const handleClick = () => {
         if (page <= total_pages) {
             dispatch(
@@ -41,24 +31,6 @@ export const Users = () => {
                 })
             );
         }
-
-        // newUser
-        //     ? dispatch(
-        //           getUsers({
-        //               params: {
-        //                   page: 1,
-        //                   count: '6',
-        //               },
-        //           })
-        //       )
-        //     : dispatch(
-        //           getUsers({
-        //               params: {
-        //                   page: page + 1,
-        //                   count: '6',
-        //               },
-        //           })
-        //       );
     };
 
     return (
@@ -88,6 +60,7 @@ export const Users = () => {
                         mobile: '1fr',
                         tablet: '1fr 1fr',
                         laptop: '1fr 1fr 1fr',
+                        desktopS: '370px 370px 370px',
                     }}
                     width={'100%'}
                 >

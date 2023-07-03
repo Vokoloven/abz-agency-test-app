@@ -34,7 +34,6 @@ export const App = () => {
             <Hero />
             <Users />
             <Request />
-            {/* <Fonts /> */}
         </>
     );
 };
