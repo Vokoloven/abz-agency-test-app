@@ -38,9 +38,6 @@ export const usersSlice = createSlice({
             state.loading = 'succeeded';
             state.usersList = { ...payload?.data };
             state.positions = { ...payload?.positions };
-            if (state.newUser) {
-                state.newUser = false;
-            }
         });
         builder.addCase(getUsers.rejected, (state, { payload }) => {
             state.errorMessage = payload.message;

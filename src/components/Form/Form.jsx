@@ -29,7 +29,7 @@ export const Form = () => {
     const onSubmit = (e) => {
         const userData = inputCopy(e);
 
-        const dispatched = async () => {
+    const dispatched = async () => {
             const postedUser = await dispatch(postUser(userData));
 
             if (postedUser.type === 'users/postUser/fulfilled' && page === 1) {

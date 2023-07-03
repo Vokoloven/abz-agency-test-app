@@ -12,19 +12,20 @@ export const App = () => {
     const isFirstRender = useRef(true);
 
     useEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
-            return;
+        if (isFirstRender.current === true) {
+            dispatch(
+                getUsers({
+                    params: {
+                        page: '1',
+                        count: '6',
+                    },
+                })
+            );
         }
 
-        dispatch(
-            getUsers({
-                params: {
-                    page: '1',
-                    count: '6',
-                },
-            })
-        );
+        return () => {
+            isFirstRender.current = false;
+        };
     }, [dispatch]);
 
     return (

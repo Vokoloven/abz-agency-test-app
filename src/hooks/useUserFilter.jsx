@@ -1,30 +1,49 @@
 import { useSelector } from 'react-redux';
 import { selectUsers } from 'redux/selectors';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 export const useUserFilter = () => {
     const { usersList, newUser } = useSelector(selectUsers);
     const { users } = usersList;
     const [updatedUsers, setUpdatedUsers] = useState([]);
+    const isAddNewUser = useRef(newUser);
 
-    useEffect(() => {
+    const getData = useCallback(() => {
         const filteredUsersByRegTimestamp = users?.toSorted(
             (first, second) =>
                 second.registration_timestamp - first.registration_timestamp
         );
         const length = filteredUsersByRegTimestamp?.length;
 
-        if (length > 0) {
-            !newUser
-                ? setUpdatedUsers((prevState) => [
-                      ...prevState,
-                      ...filteredUsersByRegTimestamp,
-                  ])
-                : setUpdatedUsers([]);
-        }
-    }, [newUser, users]);
+        if (isAddNewUser.current && length > 0) {
+            setUpdatedUsers(filteredUsersByRegTimestamp);
 
-    useEffect(() => {}, []);
+            return () => {
+                isAddNewUser.current = false;
+            };
+        }
+
+        if (!isAddNewUser.current && length > 0) {
+            setUpdatedUsers((prevState) => [
+                ...prevState,
+                ...filteredUsersByRegTimestamp,
+            ]);
+        }
+    }, [users]);
+
+    useEffect(() => {
+        getData();
+    }, [getData]);
+
+    // useEffect(() => {
+    //     const filteredUsersByRegTimestamp = users?.toSorted(
+    //         (first, second) =>
+    //             second.registration_timestamp - first.registration_timestamp
+    //     );
+    //     const length = filteredUsersByRegTimestamp?.length;
+    // }, [users]);
+
+    console.log(updatedUsers);
 
     return updatedUsers;
 };

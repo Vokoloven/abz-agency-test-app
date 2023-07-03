@@ -26,7 +26,7 @@ ${normalize}
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: lightblue;
+    background-color: ${(p) => p.theme.colors.primary};
     border-radius: 25px;
   }
 

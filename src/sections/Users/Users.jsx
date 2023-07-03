@@ -20,9 +20,9 @@ export const Users = () => {
     } = useSelector(selectUsers);
     const filteredUsers = useUserFilter();
 
-    const handleClick = async () => {
+    const handleClick = () => {
         if (page <= total_pages) {
-            await dispatch(
+            dispatch(
                 getUsers({
                     params: {
                         page: newUser ? 1 : page + 1,
