@@ -74,16 +74,18 @@ export const Users = () => {
                     <Spinner loading={loading} />
                 </Box>
             )}
-            <Button
-                variant={'primary'}
-                ariaLabel={'Show more'}
-                mt={50}
-                minWidth={120}
-                onClick={handleClick}
-                sx={{ ...(total_pages === page && { display: 'none' }) }}
-            >
-                Show more
-            </Button>
+            {(loading === 'idle' || loading === 'succeeded') && (
+                <Button
+                    variant={'primary'}
+                    ariaLabel={'Show more'}
+                    mt={50}
+                    minWidth={120}
+                    onClick={handleClick}
+                    sx={{ ...(total_pages === page && { display: 'none' }) }}
+                >
+                    Show more
+                </Button>
+            )}
         </Container>
     );
 };
