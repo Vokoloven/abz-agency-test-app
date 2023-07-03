@@ -11,7 +11,6 @@ In the project directory, you can run:
 | `npm install `    | Will installed dependencies |
 | `npm start`       | Start dev server            |
 | `npm run build`   | Build for production        |
-| `npm run lint `   | Check errors by lint        |
 | `npm run deploy ` | Deploy project for gh-pages |
 
 For deploying your project into **`gh-pages`**, you need change **`homepages`** for yours.\
