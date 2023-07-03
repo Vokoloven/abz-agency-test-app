@@ -14,7 +14,7 @@ In the project directory, you can run:
 | `npm run deploy ` | Deploy project on gh-pages  |
 
 For deploying your project into **`gh-pages`**, you need change **`homepages`** for yours.\
-For more info about gh-pages (here)[https://github.com/gitname/react-gh-pages]
+For more info about gh-pages [here](https://github.com/gitname/react-gh-pages)
 
 ## Contacts
 
