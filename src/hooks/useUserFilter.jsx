@@ -1,49 +1,35 @@
 import { useSelector } from 'react-redux';
 import { selectUsers } from 'redux/selectors';
-import { useCallback, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export const useUserFilter = () => {
     const { usersList, newUser } = useSelector(selectUsers);
-    const { users } = usersList;
+    const { users, page } = usersList;
     const [updatedUsers, setUpdatedUsers] = useState([]);
-    const isAddNewUser = useRef(newUser);
+    const isNewUser = useRef(newUser);
 
-    const getData = useCallback(() => {
-        const filteredUsersByRegTimestamp = users?.toSorted(
-            (first, second) =>
-                second.registration_timestamp - first.registration_timestamp
-        );
-        const length = filteredUsersByRegTimestamp?.length;
-
-        if (isAddNewUser.current && length > 0) {
-            setUpdatedUsers(filteredUsersByRegTimestamp);
-
-            return () => {
-                isAddNewUser.current = false;
-            };
+    useEffect(() => {
+        if (users.length > 0 && page === 1) {
+            setUpdatedUsers([]);
         }
+    }, [page, users]);
 
-        if (!isAddNewUser.current && length > 0) {
-            setUpdatedUsers((prevState) => [
-                ...prevState,
-                ...filteredUsersByRegTimestamp,
-            ]);
+    useEffect(() => {
+        if (users.length > 0 && !isNewUser.current) {
+            setUpdatedUsers((prevState) => [...prevState, ...users]);
         }
     }, [users]);
 
-    useEffect(() => {
-        getData();
-    }, [getData]);
+    const getUniqueListBy = (arr, key) => {
+        return [...new Map(arr?.map((item) => [item[key], item])).values()];
+    };
 
-    // useEffect(() => {
-    //     const filteredUsersByRegTimestamp = users?.toSorted(
-    //         (first, second) =>
-    //             second.registration_timestamp - first.registration_timestamp
-    //     );
-    //     const length = filteredUsersByRegTimestamp?.length;
-    // }, [users]);
+    const clearUsers = getUniqueListBy(updatedUsers, 'id');
 
-    console.log(updatedUsers);
+    const filteredUsersByRegTimestamp = clearUsers?.toSorted(
+        (first, second) =>
+            second.registration_timestamp - first.registration_timestamp
+    );
 
-    return updatedUsers;
+    return filteredUsersByRegTimestamp;
 };

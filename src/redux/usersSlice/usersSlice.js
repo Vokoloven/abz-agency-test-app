@@ -18,8 +18,8 @@ export const usersSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(postUser.pending, (state) => {
-            state.newUser = false;
             state.loading = 'pending';
+            state.newUser = false;
         });
         builder.addCase(postUser.fulfilled, (state, { payload }) => {
             state.newUser = true;
@@ -35,6 +35,7 @@ export const usersSlice = createSlice({
             state.loading = 'pending';
         });
         builder.addCase(getUsers.fulfilled, (state, { payload }) => {
+            state.newUser = false;
             state.loading = 'succeeded';
             state.usersList = { ...payload?.data };
             state.positions = { ...payload?.positions };
