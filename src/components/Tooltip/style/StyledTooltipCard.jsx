@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { StyledTooltipText } from './StyledTooltipText';
 import { StyledTooltipBox } from './StyledTooltipBox';
 
-export const StyledTooltipCard = styled('li')`
+export const StyledTooltipCard = styled('div')`
     position: relative;
     display: flex;
     justify-content: center;

@@ -10,7 +10,7 @@ export const Tooltip = ({ children, sx }) => {
     const { width } = useWindowDimension();
 
     return (
-        <Box {...sx}>
+        <Box as={'li'} {...sx}>
             <StyledTooltipCard>
                 <StyledTooltipText>
                     <Box as={'a'} href={`mailto:${children}`} display={'block'}>

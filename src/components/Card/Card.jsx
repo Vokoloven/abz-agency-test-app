@@ -12,16 +12,17 @@ export const Card = ({ props: { name, position, email, phone, photo } }) => {
                 alignItems={'center'}
                 flexDirection={'column'}
             >
-                <Box
-                    as={'img'}
-                    src={photo}
-                    alt={'photo'}
-                    width={70}
-                    height={70}
-                    borderRadius={'50%'}
-                    loading={'lazy'}
-                />
-
+                <Box as={'li'}>
+                    <Box
+                        as={'img'}
+                        src={photo}
+                        alt={'photo'}
+                        width={70}
+                        height={70}
+                        borderRadius={'50%'}
+                        loading={'lazy'}
+                    />
+                </Box>
                 <Tooltip sx={{ mt: 20 }}>{name}</Tooltip>
                 <Typography as={'li'} variant={'body'} mt={20}>
                     {position}
