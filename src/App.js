@@ -22,11 +22,11 @@ export const App = () => {
                     },
                 })
             );
-        }
 
-        return () => {
-            isFirstRender.current = false;
-        };
+            return () => {
+                isFirstRender.current = false;
+            };
+        }
     }, [dispatch]);
 
     return (
