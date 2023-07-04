@@ -26,7 +26,7 @@ export const useUserFilter = () => {
 
     const clearUsers = getUniqueListBy(updatedUsers, 'id');
 
-    const filteredUsersByRegTimestamp = clearUsers?.toSorted(
+    const filteredUsersByRegTimestamp = clearUsers?.sort(
         (first, second) =>
             second.registration_timestamp - first.registration_timestamp
     );
