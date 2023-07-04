@@ -14,7 +14,6 @@ export const Tooltip = ({ children, sx }) => {
                         as={'a'}
                         href={`mailto:${children}`}
                         display={'block'}
-                        maxWidth={{ laptop: '242px', desktopS: '330px' }}
                         sx={{
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
