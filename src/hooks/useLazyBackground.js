@@ -5,6 +5,9 @@ export const useLazyBackground = (src) => {
 
     useEffect(() => {
         const img = new Image();
+        setTimeout(() => {
+            img.loading = 'lazy';
+        }, 0);
         img.src = src;
         img.onload = () => setSourceLoaded(src);
     }, [src]);
