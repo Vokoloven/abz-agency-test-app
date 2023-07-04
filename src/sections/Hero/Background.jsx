@@ -9,7 +9,7 @@ export const Background = styled('div')`
     }
 
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(${({ source }) => source});
+        url(${({ src }) => src});
     background-repeat: no-repeat;
     background-size: auto 150%;
     background-position: bottom;
