@@ -4,7 +4,7 @@ const sliceTextByWidth = (width) => {
     } else if (width >= 768 && width < 1024) {
         return 38;
     } else if (width >= 1024 && width < 1170) {
-        return 27;
+        return 26;
     } else {
         return 42;
     }
