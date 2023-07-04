@@ -4,7 +4,7 @@ import { Typography } from 'components/Typography';
 import { Background } from './Background';
 import { Box } from 'components/Box';
 import { useLazyBackground } from 'hooks/useLazyBackground';
-import image from 'assets/pexels-alexandr-podvalny-1227513.jpg';
+import image from 'assets/pexels-alexandr-podvalny-1227513.webp';
 
 export const Hero = () => {
     const source = useLazyBackground(image);
