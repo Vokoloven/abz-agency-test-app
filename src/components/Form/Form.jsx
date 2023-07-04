@@ -93,13 +93,20 @@ export const Form = () => {
                 <RadioButton register={register} />
             </RadioButtonBox>
             <Upload register={register} error={error?.photo} input={input} />
+            <Spinner
+                loading={loadingPost}
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: 50,
+                }}
+            />
             <Box
                 width={'100%'}
                 display={'flex'}
                 justifyContent={'center'}
                 mt={50}
             >
-                <Spinner loading={loadingPost} />
                 {loadingPost !== 'pending' && (
                     <Button
                         type={'submit'}

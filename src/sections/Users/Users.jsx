@@ -69,12 +69,8 @@ export const Users = () => {
                     ))}
                 </Box>
             )}
-            {loading === 'pending' && (
-                <Box mt={50}>
-                    <Spinner loading={loading} />
-                </Box>
-            )}
-            {(loading === 'idle' || loading === 'succeeded') && (
+            <Spinner loading={loading} sx={{ marginTop: 50 }} />
+            {loading !== 'pending' && (
                 <Button
                     variant={'primary'}
                     ariaLabel={'Show more'}

@@ -1,10 +1,15 @@
-import { StyledSpinner } from './style/StyledSpinner'
+import { StyledSpinner } from './style/StyledSpinner';
+import { Box } from 'components/Box';
 
-export const Spinner = ({ loading }) => {
+export const Spinner = ({ loading, sx }) => {
     const handleLoadingStatus = (loading) => {
         if (loading === 'pending') {
-            return <StyledSpinner />
+            return (
+                <Box sx={{ ...sx }}>
+                    <StyledSpinner />
+                </Box>
+            );
         }
-    }
-    return handleLoadingStatus(loading)
-}
+    };
+    return handleLoadingStatus(loading);
+};
