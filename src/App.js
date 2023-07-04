@@ -7,10 +7,12 @@ import { useDispatch } from 'react-redux';
 import { getUsers } from 'redux/service';
 import { useRef } from 'react';
 import { ToastNotification } from 'components/ToastNotification';
+import { useFonts } from 'hooks/useFonts';
 
 export const App = () => {
     const dispatch = useDispatch();
     const isFirstRender = useRef(true);
+    useFonts();
 
     useEffect(() => {
         if (isFirstRender.current === true) {
