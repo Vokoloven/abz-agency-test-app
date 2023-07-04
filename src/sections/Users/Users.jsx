@@ -70,7 +70,7 @@ export const Users = () => {
                 </Box>
             )}
             {loading === 'pending' && (
-                <Box mt={3}>
+                <Box mt={50}>
                     <Spinner loading={loading} />
                 </Box>
             )}
