@@ -54,6 +54,7 @@ export const Users = () => {
             </Typography>
             {filteredUsers?.length > 0 && (
                 <Box
+                    width={'100%'}
                     display={'grid'}
                     gridGap={{ mobile: 5, tablet: 4, laptop: 29 }}
                     gridTemplateColumns={{
@@ -62,7 +63,6 @@ export const Users = () => {
                         laptop: '1fr 1fr 1fr',
                         desktopS: '370px 370px 370px',
                     }}
-                    width={'100%'}
                 >
                     {filteredUsers?.map((item) => (
                         <Card props={item} key={item.id} />

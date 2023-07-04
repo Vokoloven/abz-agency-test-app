@@ -12,7 +12,7 @@ ${normalize}
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 0px;
     height: 5px;
   }
 
@@ -29,6 +29,8 @@ ${normalize}
     background-color: ${(p) => p.theme.colors.primary};
     border-radius: 25px;
   }
+
+
 
 body {
     font-family: ${(p) => p.theme.fonts.nunito};

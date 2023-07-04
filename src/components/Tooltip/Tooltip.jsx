@@ -10,16 +10,7 @@ export const Tooltip = ({ children, sx }) => {
         <Box {...sx}>
             <StyledTooltipCard>
                 <StyledTooltipText>
-                    <Box
-                        as={'a'}
-                        href={`mailto:${children}`}
-                        display={'block'}
-                        sx={{
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                        }}
-                    >
+                    <Box as={'a'} href={`mailto:${children}`} display={'block'}>
                         <Typography variant={'body'}>
                             {sliceText(children)}
                         </Typography>

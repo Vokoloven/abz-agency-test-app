@@ -9,6 +9,7 @@ export const StyledTooltipBox = styled('div')`
 
     @media screen and (min-width: ${(p) => p.theme.breakpoints.mobile}) {
         max-width: 328px;
+        word-wrap: break-word;
     }
 
     @media screen and (min-width: ${(p) => p.theme.breakpoints.tablet}) {
@@ -16,7 +17,13 @@ export const StyledTooltipBox = styled('div')`
     }
 
     @media screen and (min-width: ${(p) => p.theme.breakpoints.laptop}) {
-        max-width: auto;
+        max-width: 282px;
+    }
+
+    @media screen and (min-width: ${(p) => p.theme.breakpoints.desktopS}) {
+        max-width: initial;
+        white-space: nowrap;
+        word-wrap: initial;
     }
 
     padding: 3px 16px;
@@ -27,5 +34,4 @@ export const StyledTooltipBox = styled('div')`
     transition: opacity, 0.3s ease-in-out;
 
     z-index: 1;
-    word-wrap: break-word;
 `;
