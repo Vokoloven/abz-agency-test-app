@@ -14,7 +14,7 @@ export const Header = () => {
                     justifyContent={{ tablet: 'space-between' }}
                 >
                     <Logo mr={14} />
-                    <Box>
+                    <Box display={'flex'}>
                         {['Users', 'Sign up'].map((name, index) => (
                             <Box
                                 key={name}
