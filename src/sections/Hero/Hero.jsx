@@ -2,13 +2,16 @@ import { Button } from 'components/Button';
 import { Container } from 'components/Container';
 import { Typography } from 'components/Typography';
 import { Box } from 'components/Box';
+import { Background } from './Background';
+import { useLazyBackground } from 'hooks/useLazyBackground';
 import image from 'assets/pexels-alexandr-podvalny-1227513.webp';
-import { LazyBackground } from './LazyBackground';
 
 export const Hero = () => {
+    const src = useLazyBackground(image);
+
     return (
         <Container p={{ mobile: 0, tablet: 0, laptop: 0, desktop: 0 }}>
-            <LazyBackground src={image}>
+            <Background src={src}>
                 <Container
                     pt={{ mobile: 40, tablet: 89, laptop: 164 }}
                     px={{ mobile: 16, tablet: 194, laptop: 322, desktopS: 395 }}
@@ -48,7 +51,7 @@ export const Hero = () => {
                         </Button>
                     </Box>
                 </Container>
-            </LazyBackground>
+            </Background>
         </Container>
     );
 };
