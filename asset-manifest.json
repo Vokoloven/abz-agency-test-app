@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.js": "/abz-agency-test-app/static/js/main.df8ebeca.js",
+    "main.js": "/abz-agency-test-app/static/js/main.96e42f62.js",
     "static/js/72.b47dcea6.chunk.js": "/abz-agency-test-app/static/js/72.b47dcea6.chunk.js",
     "static/js/599.1368db38.chunk.js": "/abz-agency-test-app/static/js/599.1368db38.chunk.js",
     "static/js/35.bc00eb06.chunk.js": "/abz-agency-test-app/static/js/35.bc00eb06.chunk.js",
-    "static/js/632.fd70637f.chunk.js": "/abz-agency-test-app/static/js/632.fd70637f.chunk.js",
-    "static/js/640.d71e6654.chunk.js": "/abz-agency-test-app/static/js/640.d71e6654.chunk.js",
+    "static/js/632.a2e13ed3.chunk.js": "/abz-agency-test-app/static/js/632.a2e13ed3.chunk.js",
+    "static/js/640.3f6957a5.chunk.js": "/abz-agency-test-app/static/js/640.3f6957a5.chunk.js",
     "static/js/831.ae6f5c35.chunk.js": "/abz-agency-test-app/static/js/831.ae6f5c35.chunk.js",
     "static/css/580.0c8dff8d.chunk.css": "/abz-agency-test-app/static/css/580.0c8dff8d.chunk.css",
     "static/media/pexels-alexandr-podvalny-1227513.webp": "/abz-agency-test-app/static/media/pexels-alexandr-podvalny-1227513.b9fa98b71874f013cc4c.webp",
     "static/media/success-image.svg": "/abz-agency-test-app/static/media/success-image.0d3202ba11b04fa7364b0f83ce42aea5.svg",
     "static/media/Logo.svg": "/abz-agency-test-app/static/media/Logo.8bb55362d01d55393ccc5476d96f0c14.svg",
     "index.html": "/abz-agency-test-app/index.html",
-    "main.df8ebeca.js.map": "/abz-agency-test-app/static/js/main.df8ebeca.js.map",
+    "main.96e42f62.js.map": "/abz-agency-test-app/static/js/main.96e42f62.js.map",
     "72.b47dcea6.chunk.js.map": "/abz-agency-test-app/static/js/72.b47dcea6.chunk.js.map",
     "599.1368db38.chunk.js.map": "/abz-agency-test-app/static/js/599.1368db38.chunk.js.map",
     "35.bc00eb06.chunk.js.map": "/abz-agency-test-app/static/js/35.bc00eb06.chunk.js.map",
-    "632.fd70637f.chunk.js.map": "/abz-agency-test-app/static/js/632.fd70637f.chunk.js.map",
-    "640.d71e6654.chunk.js.map": "/abz-agency-test-app/static/js/640.d71e6654.chunk.js.map",
+    "632.a2e13ed3.chunk.js.map": "/abz-agency-test-app/static/js/632.a2e13ed3.chunk.js.map",
+    "640.3f6957a5.chunk.js.map": "/abz-agency-test-app/static/js/640.3f6957a5.chunk.js.map",
     "831.ae6f5c35.chunk.js.map": "/abz-agency-test-app/static/js/831.ae6f5c35.chunk.js.map",
     "580.0c8dff8d.chunk.css.map": "/abz-agency-test-app/static/css/580.0c8dff8d.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/main.df8ebeca.js"
+    "static/js/main.96e42f62.js"
   ]
 }
