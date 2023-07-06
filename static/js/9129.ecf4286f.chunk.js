@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkabz_agency_test_app=self.webpackChunkabz_agency_test_app||[]).push([[9129],{9129:function(e,n,t){t.r(n),t.d(n,{phoneFilter:function(){return a}});var a=function(e){var n=0,t=null===e||void 0===e?void 0:e.length;if(n<=t){var a=null===e||void 0===e?void 0:e.replace(/\D/g,"").match(/(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);return n=t,"+38 (0"+(a[2],"")+a[2]+(a[3]?") ":"")+a[3]+(a[4]?"-"+a[4]:"")+(a[5]?"-"+a[5]:"")}}}}]);
+//# sourceMappingURL=9129.ecf4286f.chunk.js.map

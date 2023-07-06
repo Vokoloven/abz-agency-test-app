@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkabz_agency_test_app=self.webpackChunkabz_agency_test_app||[]).push([[4867],{4867:function(e,a,c){e.exports=c.p+"static/media/android-chrome-192x192.9fa1efa4b8ecf6b4b3cf.png"}}]);

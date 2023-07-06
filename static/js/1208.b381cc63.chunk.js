@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkabz_agency_test_app=self.webpackChunkabz_agency_test_app||[]).push([[1208],{1208:function(e,a,n){n.r(a),n.d(a,{regExp:function(){return s}});var s={name:/^[a-zA-Z '.-]*$/,phone:/^(\+38[ ])?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-.]?([0-9]{2})[-.]?([0-9]{2})$/,email:/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i}}}]);
+//# sourceMappingURL=1208.b381cc63.chunk.js.map

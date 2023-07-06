@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkabz_agency_test_app=self.webpackChunkabz_agency_test_app||[]).push([[3630],{3630:function(e,a,c){e.exports=c.p+"static/media/Logo.8bb55362d01d55393ccc.svg"}}]);
