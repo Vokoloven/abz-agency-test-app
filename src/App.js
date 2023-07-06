@@ -1,12 +1,7 @@
-// import Header from 'sections/Header';
-// import { Hero } from 'sections/Hero';
-// import { Users } from 'sections/Users';
-// import { Request } from 'sections/Request';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUsers } from 'redux/service';
 import { useRef } from 'react';
-// import ToastNotification from 'components/ToastNotification';
 import { useFonts } from 'hooks/useFonts';
 import { lazy, Suspense } from 'react';
 import { Box } from 'components/Box';
