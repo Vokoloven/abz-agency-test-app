@@ -23,11 +23,13 @@ export const Card = ({ props: { name, position, email, phone, photo } }) => {
                         loading={'lazy'}
                     />
                 </Box>
-                <Tooltip sx={{ mt: 20 }}>{name}</Tooltip>
+                <Tooltip sx={{ mt: 20 }} itemName={'text'}>
+                    {name}
+                </Tooltip>
                 <Typography as={'li'} variant={'body'} mt={20}>
                     {position}
                 </Typography>
-                <Tooltip>{email}</Tooltip>
+                <Tooltip itemName={'email'}>{email}</Tooltip>
                 <Typography as={'li'} variant={'body'}>
                     <Box as={'a'} href={`tel:${phone}`}>
                         {phoneFilter(phone).replace(/[-]/g, ' ')}

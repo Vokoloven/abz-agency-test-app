@@ -3,21 +3,17 @@ import { StyledTooltipBox } from './style/StyledTooltipBox';
 import { StyledTooltipText } from './style/StyledTooltipText';
 import { StyledTooltipCard } from './style/StyledTooltipCard';
 import { Box } from 'components/Box';
-import { sliceText } from './sliceText';
 import { useWindowDimension } from 'hooks/useWindowDimension';
+import { tooltipHandler } from './tooltipHandler';
 
-export const Tooltip = ({ children, sx }) => {
+export const Tooltip = ({ children, sx, itemName }) => {
     const { width } = useWindowDimension();
 
     return (
         <Box as={'li'} {...sx}>
             <StyledTooltipCard>
                 <StyledTooltipText>
-                    <Box as={'a'} href={`mailto:${children}`} display={'block'}>
-                        <Typography variant={'body'}>
-                            {sliceText(children, width)}
-                        </Typography>
-                    </Box>
+                    {tooltipHandler(itemName, Box, Typography, children, width)}
                 </StyledTooltipText>
                 <StyledTooltipBox>
                     <Typography variant={'body'} color={'white'}>
