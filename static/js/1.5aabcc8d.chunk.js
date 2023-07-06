@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkabz_agency_test_app=self.webpackChunkabz_agency_test_app||[]).push([[1],[,function(a,e,s){a.exports=s.p+"static/media/success-image.0d3202ba11b04fa7364b.svg"}]]);

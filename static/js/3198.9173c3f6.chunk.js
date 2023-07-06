@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkabz_agency_test_app=self.webpackChunkabz_agency_test_app||[]).push([[3198],{3198:function(e,a,n){n.r(a),n.d(a,{inputs:function(){return p}});var p=[{id:"name",placeholder:"Your name"},{id:"email",placeholder:"Email"},{id:"phone",placeholder:"Phone"}]}}]);
-//# sourceMappingURL=3198.9173c3f6.chunk.js.map
