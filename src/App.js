@@ -6,12 +6,11 @@ import { useFonts } from 'hooks/useFonts';
 import { lazy, Suspense } from 'react';
 import { Box } from 'components/Box';
 
-const lazyComponent = (ref) => lazy(() => import(`${ref}`));
-const ToastNotification = lazyComponent('components/ToastNotification');
-const Header = lazyComponent('sections/Header');
-const Hero = lazyComponent('sections/Hero');
-const Users = lazyComponent('sections/Users');
-const Request = lazyComponent('sections/Request');
+const ToastNotification = lazy(() => import('components/ToastNotification'));
+const Header = lazy(() => import('sections/Header'));
+const Hero = lazy(() => import('sections/Hero'));
+const Users = lazy(() => import('sections/Users'));
+const Request = lazy(() => import('sections/Request'));
 
 export const App = () => {
     const dispatch = useDispatch();
