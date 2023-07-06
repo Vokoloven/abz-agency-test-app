@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const StyledTextPlaceholder = styled('p')`
     position: absolute;
@@ -10,6 +10,8 @@ export const StyledTextPlaceholder = styled('p')`
     font-size: ${(p) => p.theme.fontSizes[2]};
     line-height: ${(p) => p.theme.lineHeights[2]};
     color: ${(p) => p.theme.colors.placeholder};
+
+    pointer-events: none;
 
     transition: all 0.2s ease-in-out;
 
@@ -33,4 +35,4 @@ export const StyledTextPlaceholder = styled('p')`
         css`
             color: ${(p) => p.theme.colors.error};
         `}
-`
+`;
