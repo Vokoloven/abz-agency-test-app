@@ -6,7 +6,7 @@ import { Background } from './Background';
 import { useLazyBackground } from 'hooks/useLazyBackground';
 import image from 'assets/pexels-alexandr-podvalny-1227513.webp';
 
-export const Hero = () => {
+const Hero = () => {
     const src = useLazyBackground(image);
 
     return (
@@ -55,3 +55,5 @@ export const Hero = () => {
         </Container>
     );
 };
+
+export default Hero;

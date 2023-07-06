@@ -1,3 +1,3 @@
-import { ToastNotification } from "./ToastNotification";
+import ToastNotification from './ToastNotification';
 
-export {ToastNotification}
+export default ToastNotification;

@@ -10,7 +10,7 @@ import { getUsers } from 'redux/service';
 import { useUserFilter } from 'hooks/useUserFilter';
 import { useDispatch } from 'react-redux';
 
-export const Users = () => {
+const Users = () => {
     const dispatch = useDispatch();
 
     const {
@@ -85,3 +85,5 @@ export const Users = () => {
         </Container>
     );
 };
+
+export default Users;

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectUsers } from 'redux/selectors';
 import { Box } from 'components/Box';
 
-export const Request = () => {
+const Request = () => {
     const { loadingPost } = useSelector(selectUsers);
 
     return (
@@ -31,3 +31,5 @@ export const Request = () => {
         </Container>
     );
 };
+
+export default Request;

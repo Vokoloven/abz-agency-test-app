@@ -3,7 +3,7 @@ import { Box } from 'components/Box';
 import { Logo } from 'components/Logo';
 import { Button } from 'components/Button';
 
-export const Header = () => {
+const Header = () => {
     return (
         <Box bg={'white'}>
             <Container as={'header'}>
@@ -38,3 +38,5 @@ export const Header = () => {
         </Box>
     );
 };
+
+export default Header;

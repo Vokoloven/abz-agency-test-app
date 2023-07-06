@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 
-export const ToastNotification = () => {
+const ToastNotification = () => {
     const { errorMessage, loadingPost } = useSelector(selectUsers);
 
     useEffect(() => {
@@ -24,3 +24,5 @@ export const ToastNotification = () => {
 
     return <ToastContainer />;
 };
+
+export default ToastNotification;

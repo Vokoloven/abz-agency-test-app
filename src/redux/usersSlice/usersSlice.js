@@ -29,7 +29,6 @@ export const usersSlice = createSlice({
             state.createdUser = { ...payload };
         });
         builder.addCase(postUser.rejected, (state, { payload }) => {
-            console.log(payload);
             state.newUser = false;
             state.errorMessage = payload.message;
             state.loadingPost = 'failed';
